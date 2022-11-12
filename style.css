@@ -104,7 +104,7 @@ input[type=text]{
   margin: 2%;
   text-align: center;
   position: relative;
-  margin-left: 4em;
+  margin-left: 8%;
   font-family: 'Times New Roman', Times, serif;
   font-size: 200%;
  }
@@ -114,5 +114,56 @@ input[type=text]{
   height: 50%;
   border-radius: 4px;
   border: solid rgb(73, 33, 33);
+  position: sticky;
+  margin-left: 9.4%;
+  border: transparent;
+  font-size: 200%;
+  font-family: 'Times New Roman', Times, serif;
+  margin-top: 2%;
  } 
+ ::-webkit-input-placeholder {
+  text-align: center;
+}
+
+:-moz-placeholder {
+  text-align: center;
+}
+
+#upload-image{
+  border-radius: 4px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.16);
+  
+}
+
+input[type="file"]::file-selector-button {
+  border: 2px solid #ffffff;
+  padding: 0.2em 0.4em;
+  border-radius: 0.2em;
+  background-color: rgb(255, 255, 255);
+  transition: 1s;
+}
+
+input[type="file"] {
+  padding:5px 15px;
+  margin-top: 2%;
+  margin-left: 3%;
+}
+
+input[type="file"]::file-selector-button:hover {
+  background-color: #64343a;
+  border: 2px solid #573037;
+  cursor: pointer;
+}
+
+input[type=submit] {
+  padding:5px 15px; 
+  background:#ccc; 
+  border:2px solid none;
+  cursor:pointer;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  margin-top: 2%;
+  margin-left: 3%; 
+  color: #71131e;
+}
 
