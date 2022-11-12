@@ -55,7 +55,7 @@ a:is(:link, :active, :visited).active {
   width: 15rem;
   height: 35rem;
   display: inline-grid;
-  margin: 1rem 10rem;
+  margin: 1rem 8rem;
   box-shadow: -20px 15px 6px #a79596;
   background-color: #80584e;
   overflow: hidden;
@@ -91,3 +91,28 @@ a:is(:link, :active, :visited).active {
 .card:hover .title::after {
   transform: scaleX(1);
 }
+
+input[type=text]{
+  border: none;
+  border-bottom: 2px solid red;
+  
+}
+
+
+ #post-form > .text{
+  padding: 1%;
+  margin: 2%;
+  text-align: center;
+  position: relative;
+  margin-left: 4em;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 200%;
+ }
+
+ #post-form > #summary-input {
+  width: 80%;
+  height: 50%;
+  border-radius: 4px;
+  border: solid rgb(73, 33, 33);
+ } 
+

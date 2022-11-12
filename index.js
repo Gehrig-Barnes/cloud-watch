@@ -12,19 +12,24 @@ const navLinks = document.querySelectorAll("nav a").forEach((link) => {
   }
 });
 
+console.log(currentPage)
+
 //home page
 fetch("http://localhost:3000/news")
 .then(r => r.json())
-.then(data => renderArticles(data))
+.then(data => {
+  renderArticles(data)
+  
+})
 
 const articlesDiv = document.querySelector("#articles")
 
+
 function renderArticles(articles){
-  if (currentPage === "/Users/gehrig/code/projects/weatherApp/html/index.html"){
+  if (currentPage.includes('index.html')){
   articles.forEach((article) => {
     const card = document.createElement("div")
     card.className = "card"
-    card.classList.add("hidden")
     const titleTag = document.createElement("h1")
     titleTag.textContent = article.title
     titleTag.className = "title"
@@ -42,7 +47,6 @@ function renderArticles(articles){
     pSummary.append(pAuthor)
     card.append(titleTag, imgTag, pSummary, a)
     articlesDiv.append(card)
-    
   }) 
   }
 }

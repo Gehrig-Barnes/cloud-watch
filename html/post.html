@@ -1,0 +1,43 @@
+<html>
+  <head>
+    <title>Weather App</title>
+    <link rel="stylesheet" type="text/css" href="../style.css" />
+  </head>
+  <body>
+    <nav class="nav_bar">
+      <ul>
+        <li>
+          <a href="index.html">Home</a>
+        </li>
+      </ul>
+      <ul>
+        <li>
+          <a href="weather.html">Weather</a>
+        </li>
+      </ul>
+      <ul>
+        <li>
+          <a href="post.html">Post</a>
+        </li>
+      </ul>
+    </nav>
+
+    <div>
+      <div id="post-card">
+        <form id="post-form">
+          <input type="text" placeholder="Title..." id="title" name="new-title" class="text">
+          <input type="text" placeholder="enter author(s)..." id="author-input" name="author-input" class="text">
+          <input type="text" placeholder="link to source ..." id="source-input" name="source-input" class="text">
+          <br>
+          <input type="file" placeholder="Upload Image..." id="upload-image" name="upload-image">
+          <br>
+          <textarea id="summary-input" name="summary-input" class="last"> Enter Summary...</textarea>
+          <br>
+          <input type="submit" value="done!" id="sumbit-button" class="last">
+        </form>
+      </div>
+    </div>
+
+    <script defer src="../index.js"></script>
+  </body>
+</html>
