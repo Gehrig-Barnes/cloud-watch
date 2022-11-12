@@ -1,0 +1,29 @@
+{
+    "news": [
+      {
+        "id": 1,
+        "title": "Volcano",
+        "image": "https://npr.brightspotcdn.com/dims4/default/b5af0c2/2147483647/strip/true/crop/3600x2400+0+0/resize/880x587!/quality/90/?url=http%3A%2F%2Fnpr-brightspot.s3.amazonaws.com%2Fd1%2F3a%2F44ae16de4f5db12a4bba21c4c26a%2Fap22306695624416.jpg",
+        "summary": "this is the summary test etst test",
+        "author": "Weather Under Ground",
+        "source": "https://www.wunderground.com/weather-infographics/volcanoes"
+      },
+      {
+        "id": 2,
+        "title": "Volcano",
+        "image": "https://npr.brightspotcdn.com/dims4/default/b5af0c2/2147483647/strip/true/crop/3600x2400+0+0/resize/880x587!/quality/90/?url=http%3A%2F%2Fnpr-brightspot.s3.amazonaws.com%2Fd1%2F3a%2F44ae16de4f5db12a4bba21c4c26a%2Fap22306695624416.jpg",
+        "summary": "this is the summary test etst test",
+        "author": "Weather Under Ground",
+        "source": "https://www.wunderground.com/weather-infographics/volcanoes"
+      },
+      {
+        "id": 3,
+        "title": "Volcano",
+        "image": "https://npr.brightspotcdn.com/dims4/default/b5af0c2/2147483647/strip/true/crop/3600x2400+0+0/resize/880x587!/quality/90/?url=http%3A%2F%2Fnpr-brightspot.s3.amazonaws.com%2Fd1%2F3a%2F44ae16de4f5db12a4bba21c4c26a%2Fap22306695624416.jpg",
+        "summary": "this is the summary test etst test",
+        "author": "Weather Under Ground",
+        "source": "https://www.wunderground.com/weather-infographics/volcanoes"
+      }
+     
+    ]
+  }
