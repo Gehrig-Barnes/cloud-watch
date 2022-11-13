@@ -92,24 +92,24 @@ a:is(:link, :active, :visited).active {
   transform: scaleX(1);
 }
 
-input[type=text]{
+input[type="text"] {
   border: none;
-  border-bottom: 2px solid red;
-  
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.16);
 }
 
 
- #post-form > .text{
+
+#post-form > .text {
   padding: 1%;
   margin: 2%;
   text-align: center;
   position: relative;
   margin-left: 8%;
-  font-family: 'Times New Roman', Times, serif;
+  font-family: "Times New Roman", Times, serif;
   font-size: 200%;
- }
+}
 
- #post-form > #summary-input {
+#post-form > #summary-input {
   width: 80%;
   height: 50%;
   border-radius: 4px;
@@ -118,10 +118,10 @@ input[type=text]{
   margin-left: 9.4%;
   border: transparent;
   font-size: 200%;
-  font-family: 'Times New Roman', Times, serif;
+  font-family: "Times New Roman", Times, serif;
   margin-top: 2%;
- } 
- ::-webkit-input-placeholder {
+}
+::-webkit-input-placeholder {
   text-align: center;
 }
 
@@ -129,10 +129,9 @@ input[type=text]{
   text-align: center;
 }
 
-#upload-image{
+#fileInputControl {
   border-radius: 4px;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.16);
-  
 }
 
 input[type="file"]::file-selector-button {
@@ -144,7 +143,7 @@ input[type="file"]::file-selector-button {
 }
 
 input[type="file"] {
-  padding:5px 15px;
+  padding: 5px 15px;
   margin-top: 2%;
   margin-left: 3%;
 }
@@ -155,15 +154,14 @@ input[type="file"]::file-selector-button:hover {
   cursor: pointer;
 }
 
-input[type=submit] {
-  padding:5px 15px; 
-  background:#ccc; 
-  border:2px solid none;
-  cursor:pointer;
+input[type="submit"] {
+  padding: 5px 15px;
+  background: #ccc;
+  border: 2px solid none;
+  cursor: pointer;
   -webkit-border-radius: 5px;
   border-radius: 5px;
   margin-top: 2%;
-  margin-left: 3%; 
+  margin-left: 3%;
   color: #71131e;
 }
-
