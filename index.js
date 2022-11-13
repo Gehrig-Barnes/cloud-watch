@@ -62,7 +62,6 @@ function postArticle() {
       const linkInput = e.target["source-input"];
       const summaryInput = e.target["summary-input"];
       const fileInput = document.querySelector("#fileInputControl").files[0];
-
       const reader = new FileReader();
 
       if (
