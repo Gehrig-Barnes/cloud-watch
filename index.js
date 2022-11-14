@@ -1,16 +1,59 @@
-// const key = "d2f2d4fe77ce13ef79d20c7db14f8e5d"
-// const getWeather = `api.openweathermap.org/data/2.5/forecast?id=524901&appid=${key}`
-
-// fetch(getWeather)
-// .then(r => r.json())
-// .then(data => console.log(data))
+//long term ideas. Have the user be able to change the units from imperial to Metrics system.
+//also the user should have the option to change the language.
 
 const currentPage = window.location.pathname;
+console.log(currentPage)
 const navLinks = document.querySelectorAll("nav a").forEach((link) => {
   if (link.href.includes(`${currentPage}`)) {
     link.className = "active";
   }
 });
+if (currentPage.includes("weather.html")) {
+  const show = document.querySelector("#show-forecast");
+  const searchForm = document.querySelector("#search-form");
+  const pParent = document.querySelector("#hold-p");
+
+  searchForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const zipCode = e.target["search-input"].value;
+    const key = "d2f2d4fe77ce13ef79d20c7db14f8e5d";
+    const getWeather = `http://api.openweathermap.org/geo/1.0/zip?zip=${zipCode}&appid=${key}`;
+    fetch(getWeather)
+      .then((r) => r.json())
+      .then((data) => {
+        getCurrentWeather(data.lat, data.lon, key);
+
+        if (show.textContent === "show forecast") {
+          show.addEventListener("click", () => {
+            getWeatherForecast(data.lat, data.lon, key);
+          });
+        }
+      });
+  });
+
+  function getCurrentWeather(lat, lon, key) {
+    fetch(
+      `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${key}&units=imperial`
+    )
+      .then((r) => r.json())
+      .then((data) => console.log(data));
+  }
+
+  function getWeatherForecast(lat, lon, key) {
+    fetch(
+      `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${key}&units=imperial`
+    )
+      .then((r) => r.json())
+      .then((data) => {
+        console.log(data);
+        pParent.removeChild(show);
+        console.log(pParent);
+      });
+  }
+}
+
+//okay, so we don't have to create a card for reach one. We can just have 5 cards that are already statically built.
+//so when we submit, we can get the data for all the
 
 //home page
 fetch("http://localhost:3000/news")
@@ -23,7 +66,7 @@ const articlesDiv = document.querySelector("#articles");
 
 //post.html
 const postForm = document.querySelector("#post-form");
-
+//to do: fade in rendering. So when we click on a card, we want the card to show more details.
 function renderArticles(articles) {
   if (currentPage.includes("index.html")) {
     articles.forEach((article) => {
@@ -76,8 +119,8 @@ function postArticle() {
           if (newArray[i].value === "") {
             newArray[i].style.border = "thin solid red";
           }
-          if(newArray[i].value !== ""){
-            newArray[i].style.border = ""
+          if (newArray[i].value !== "") {
+            newArray[i].style.border = "";
           }
         }
 
@@ -87,8 +130,8 @@ function postArticle() {
         let newArray = [titleInput, authorInput, linkInput, summaryInput];
 
         for (let i = 0; i < newArray.length; i++) {
-          if(newArray[i].value !== ""){
-            newArray[i].style.border = ""
+          if (newArray[i].value !== "") {
+            newArray[i].style.border = "";
           }
         }
 
@@ -114,7 +157,6 @@ function postArticle() {
           .then((r) => r.json())
           .then((data) => e.target.reset());
       }
-      
     });
   }
 }

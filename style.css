@@ -2,10 +2,6 @@
   --clr-accent-400: hsl(15 90% 61%);
 }
 
-body {
-  background-color: rgb(240, 239, 228);
-}
-
 .nav_bar {
   background-color: rgb(27, 24, 24);
   display: flex;
@@ -101,8 +97,6 @@ input[type="text"] {
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.16);
 }
 
-
-
 #post-form > .text {
   padding: 1%;
   margin: 2%;
@@ -167,5 +161,26 @@ input[type="submit"] {
   padding: 0.2em 0.4em;
   border-radius: 0.2em;
   background-color: rgb(255, 255, 255);
-  box-shadow: .2px .2px .5px;
+  box-shadow: 0.2px 0.2px 0.5px;
+}
+
+#curr-weather{
+  text-align: center;
+  border: grey solid 1px;
+  
+  width: 30rem;
+  height: 30rem;
+  display: inline-grid;
+  margin: 1rem 1rem;
+  box-shadow: -20px 15px 6px #a79596;
+  background-color: #ffffff;
+
+  border-radius: 1%;
+}
+
+#align-card{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
