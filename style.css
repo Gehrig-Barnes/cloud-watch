@@ -164,23 +164,49 @@ input[type="submit"] {
   box-shadow: 0.2px 0.2px 0.5px;
 }
 
-#curr-weather{
-  text-align: center;
+#curr-weather {
   border: grey solid 1px;
-  
-  width: 30rem;
-  height: 30rem;
-  display: inline-grid;
+  width: 97%;
+  height: 22rem;
+  display: center;
   margin: 1rem 1rem;
   box-shadow: -20px 15px 6px #a79596;
   background-color: #ffffff;
-
   border-radius: 1%;
+  background: rgb(2, 0, 36);
+  background: linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(9, 9, 121, 1) 25%,
+    rgba(0, 212, 255, 1) 100%
+  );
 }
 
-#align-card{
+#curr-weather > #city {
+  text-align: center;
+  color: black;
+  background: rgb(2, 0, 36);
+  background: linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(0, 212, 255, 1) 0%,
+    rgba(40, 13, 3, 1) 0%,
+    rgba(147, 34, 34, 1) 100%
+  );
+  overflow: hidden;
+}
+
+#align-card {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  color: white;
+  
+}
+#align-card > div {
+  padding-left: 27%;
+  padding-right: 30%;
+  padding-bottom: 7%;
+  
 }
