@@ -172,7 +172,7 @@ input[type="submit"] {
   margin: 1rem 1rem;
   box-shadow: -20px 15px 6px #a79596;
   background-color: #ffffff;
-  border-radius: 1%;
+  border-radius: %;
   background: rgb(2, 0, 36);
   background: linear-gradient(
     90deg,
