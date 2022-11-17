@@ -2,7 +2,9 @@
 //also the user should have the option to change the language.
 
 const currentPage = window.location.pathname;
-console.log(currentPage)
+const closeButton = document.querySelector(".close-button");
+const modal = document.querySelector(".modal");
+
 const navLinks = document.querySelectorAll("nav a").forEach((link) => {
   if (link.href.includes(`${currentPage}`)) {
     link.className = "active";
@@ -14,7 +16,7 @@ if (currentPage.includes("weather.html")) {
   const pParent = document.querySelector("#hold-p");
 
   searchForm.addEventListener("submit", (e) => {
-    e.preventDefault();
+  e.preventDefault();
     const zipCode = e.target["search-input"].value;
     const key = "d2f2d4fe77ce13ef79d20c7db14f8e5d";
     const getWeather = `http://api.openweathermap.org/geo/1.0/zip?zip=${zipCode}&appid=${key}`;
@@ -89,12 +91,24 @@ function renderArticles(articles) {
       const a = document.createElement("a");
       a.href = article.source;
       a.textContent = "Source";
+      showFullSummaryOnClick(card, article)
       pSummary.append(pAuthor);
       card.append(titleTag, imgTag, pSummary, a);
       articlesDiv.append(card);
     });
   }
 }
+
+function showFullSummaryOnClick(card, article){
+  card.addEventListener("click", ()=>{
+    modal.classList.toggle("show-modal")
+
+  })
+}
+
+closeButton.addEventListener("click", ()=>{
+  modal.classList.toggle("show-modal")
+})
 
 function postArticle() {
   if (currentPage.includes("post.html")) {
@@ -161,5 +175,3 @@ function postArticle() {
   }
 }
 postArticle();
-
-
