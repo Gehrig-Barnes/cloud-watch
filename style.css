@@ -166,13 +166,13 @@ input[type="submit"] {
 
 #curr-weather {
   border: grey solid 1px;
-  width: 97%;
+  width: 75%;
   height: 22rem;
   display: center;
-  margin: 1rem 1rem;
+  margin: 0px auto;
   box-shadow: -20px 15px 6px #a79596;
   background-color: #ffffff;
-  border-radius: %;
+  
   background: rgb(2, 0, 36);
   background: linear-gradient(
     90deg,
@@ -184,15 +184,8 @@ input[type="submit"] {
 
 #curr-weather > #city {
   text-align: center;
-  color: black;
+  color: white;
   background: rgb(2, 0, 36);
-  background: linear-gradient(
-    90deg,
-    rgba(2, 0, 36, 1) 0%,
-    rgba(0, 212, 255, 1) 0%,
-    rgba(40, 13, 3, 1) 0%,
-    rgba(147, 34, 34, 1) 100%
-  );
   overflow: hidden;
 }
 
@@ -205,8 +198,12 @@ input[type="submit"] {
   
 }
 #align-card > div {
-  padding-left: 27%;
+  padding-left: 20%;
   padding-right: 30%;
   padding-bottom: 7%;
-  
+}
+
+#curr-card{
+  padding: 1%;
+  padding-right: 10%;
 }
