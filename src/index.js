@@ -1,11 +1,7 @@
-//long term ideas. Have the user be able to change the units from imperial to Metrics system.
-//also the user should have the option to change the language.
-
 const currentPage = window.location.pathname;
 const closeButton = document.querySelector(".close-button");
 const modal = document.querySelector(".modal");
 const articlesDiv = document.querySelector("#articles");
-
 const navLinks = document.querySelectorAll("nav a").forEach((link) => {
   if (link.href.includes(`${currentPage}`)) {
     link.className = "active";
@@ -37,7 +33,6 @@ function buildOutElements(articles) {
     );
   });
   addClickToCard();
-
 }
 
 function addClassIdTextContent(
@@ -50,7 +45,7 @@ function addClassIdTextContent(
   article
 ) {
   card.className = "card";
-  card.id=article.id
+  card.id = article.id;
 
   titleTag.textContent = article.title;
   titleTag.className = "title";
@@ -75,30 +70,30 @@ function appendArticles(pSummary, pAuthor, card, titleTag, imgTag, a) {
   pSummary.append(pAuthor);
   card.append(titleTag, imgTag, pSummary, a);
   articlesDiv.append(card);
-  
 }
 
-function addClickToCard(){
-  const allCards = document.querySelectorAll(".card")
+function addClickToCard() {
+  const allCards = document.querySelectorAll(".card");
   allCards.forEach((card) => {
-    card.addEventListener("click", ()=>{
-      getArticle(card.id)
-    })
-  })
+    card.addEventListener("click", () => {
+      getArticle(card.id);
+    });
+  });
 }
 
-function getArticle(cardId){
+function getArticle(cardId) {
   fetch(`http://localhost:3000/news/${cardId}`)
-  .then(r => r.json())
-  .then(articleObj => showModal(articleObj))
+    .then((r) => r.json())
+    .then((articleObj) => showModal(articleObj));
 }
 
 function showModal(article) {
-    console.log(article)
-    modal.classList.toggle("show-modal");
+  console.log(article);
+  modal.classList.toggle("show-modal");
+  document.querySelector("#modal-text").textContent = article.summary
 }
 
 closeButton.addEventListener("click", () => {
   modal.classList.toggle("show-modal");
+  
 });
-
