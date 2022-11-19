@@ -13,8 +13,8 @@ const pParent = document.querySelector("#hold-p");
 searchForm.addEventListener("submit", (e) => {
   e.preventDefault();
   const zipCode = e.target["search-input"].value;
-  const getWeather = `http://api.openweathermap.org/geo/1.0/zip?zip=${zipCode}&appid=${weatherKey}`;
-  fetch(getWeather)
+  const getLocation = `http://api.openweathermap.org/geo/1.0/zip?zip=${zipCode}&appid=${weatherKey}`;
+  fetch(getLocation)
     .then((r) => r.json())
     .then((data) => {
       getCurrentWeather(data.lat, data.lon, weatherKey);

@@ -8,6 +8,7 @@ const navLinks = document.querySelectorAll("nav a").forEach((link) => {
   }
 });
 
+
 fetch("http://localhost:3000/news")
   .then((r) => r.json())
   .then((data) => {
@@ -22,15 +23,7 @@ function buildOutElements(articles) {
     const pSummary = document.createElement("p");
     const pAuthor = document.createElement("p");
     const a = document.createElement("a");
-    addClassIdTextContent(
-      pSummary,
-      pAuthor,
-      card,
-      titleTag,
-      imgTag,
-      a,
-      article
-    );
+    addClassIdTextContent(pSummary, pAuthor,card,titleTag,imgTag,a, article);
   });
   addClickToCard();
 }
@@ -97,3 +90,4 @@ closeButton.addEventListener("click", () => {
   modal.classList.toggle("show-modal");
   
 });
+
