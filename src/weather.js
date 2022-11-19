@@ -1,5 +1,6 @@
-const currentPage = window.location.pathname;
+import { weatherKey } from "./module.js";
 
+const currentPage = window.location.pathname;
 const navLinks = document.querySelectorAll("nav a").forEach((link) => {
   if (link.href.includes(`${currentPage}`)) {
     link.className = "active";
@@ -12,12 +13,11 @@ const pParent = document.querySelector("#hold-p");
 searchForm.addEventListener("submit", (e) => {
   e.preventDefault();
   const zipCode = e.target["search-input"].value;
-  const key = "d2f2d4fe77ce13ef79d20c7db14f8e5d";
-  const getWeather = `http://api.openweathermap.org/geo/1.0/zip?zip=${zipCode}&appid=${key}`;
+  const getWeather = `http://api.openweathermap.org/geo/1.0/zip?zip=${zipCode}&appid=${weatherKey}`;
   fetch(getWeather)
     .then((r) => r.json())
     .then((data) => {
-      getCurrentWeather(data.lat, data.lon, key);
+      getCurrentWeather(data.lat, data.lon, weatherKey);
 
       if (show.textContent === "show forecast") {
         show.addEventListener("click", () => {

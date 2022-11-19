@@ -1,0 +1,22 @@
+{
+  "name": "cloud-watch",
+  "version": "1.0.0",
+  "description": "enter `json-server --watch news.json` in terminal to run server.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Gehrig-Barnes/cloud-watch.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Gehrig-Barnes/cloud-watch/issues"
+  },
+  "homepage": "https://github.com/Gehrig-Barnes/cloud-watch#readme",
+  "type": "module"
+  
+}
