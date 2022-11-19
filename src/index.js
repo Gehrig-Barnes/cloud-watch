@@ -15,47 +15,90 @@ const navLinks = document.querySelectorAll("nav a").forEach((link) => {
 fetch("http://localhost:3000/news")
   .then((r) => r.json())
   .then((data) => {
-    renderArticles(data);
+    buildOutElements(data);
   });
 
+function buildOutElements(articles) {
+  articles.forEach((article) => {
+    const card = document.createElement("div");
+    const titleTag = document.createElement("h1");
+    const imgTag = document.createElement("img");
+    const pSummary = document.createElement("p");
+    const pAuthor = document.createElement("p");
+    const a = document.createElement("a");
+    addClassIdTextContent(
+      pSummary,
+      pAuthor,
+      card,
+      titleTag,
+      imgTag,
+      a,
+      article
+    );
+  });
+  addClickToCard();
 
-
-function renderArticles(articles) {
-    articles.forEach((article) => {
-      const card = document.createElement("div");
-      card.className = "card";
-      const titleTag = document.createElement("h1");
-      titleTag.textContent = article.title;
-      titleTag.className = "title";
-      const imgTag = document.createElement("img");
-      imgTag.src = article.image;
-      const pSummary = document.createElement("p");
-      pSummary.className = "summary";
-      pSummary.textContent =
-        article.summary.length > 100
-          ? `${article.summary.substring(0, 100)} ...`
-          : article.summary;
-      const pAuthor = document.createElement("p");
-      pAuthor.textContent = article.author;
-      pAuthor.className = "author";
-      const a = document.createElement("a");
-      a.href = article.source;
-      a.textContent = "Source";
-      // showFullSummaryOnClick(card, article)
-      pSummary.append(pAuthor);
-      card.append(titleTag, imgTag, pSummary, a);
-      articlesDiv.append(card);
-    });
 }
 
-function appendArticles(){}
+function addClassIdTextContent(
+  pSummary,
+  pAuthor,
+  card,
+  titleTag,
+  imgTag,
+  a,
+  article
+) {
+  card.className = "card";
+  card.id=article.id
 
-function showFullSummaryOnClick(card, article) {
-  card.addEventListener("click", () => {
+  titleTag.textContent = article.title;
+  titleTag.className = "title";
+
+  imgTag.src = article.image;
+
+  pSummary.className = "summary";
+  pSummary.textContent =
+    article.summary.length > 100
+      ? `${article.summary.substring(0, 100)} ...`
+      : article.summary;
+
+  pAuthor.textContent = article.author;
+  pAuthor.className = "author";
+
+  a.href = article.source;
+  a.textContent = "Source";
+  appendArticles(pSummary, pAuthor, card, titleTag, imgTag, a);
+}
+
+function appendArticles(pSummary, pAuthor, card, titleTag, imgTag, a) {
+  pSummary.append(pAuthor);
+  card.append(titleTag, imgTag, pSummary, a);
+  articlesDiv.append(card);
+  
+}
+
+function addClickToCard(){
+  const allCards = document.querySelectorAll(".card")
+  allCards.forEach((card) => {
+    card.addEventListener("click", ()=>{
+      getArticle(card.id)
+    })
+  })
+}
+
+function getArticle(cardId){
+  fetch(`http://localhost:3000/news/${cardId}`)
+  .then(r => r.json())
+  .then(articleObj => showModal(articleObj))
+}
+
+function showModal(article) {
+    console.log(article)
     modal.classList.toggle("show-modal");
-  });
 }
 
 closeButton.addEventListener("click", () => {
   modal.classList.toggle("show-modal");
 });
+
