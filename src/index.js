@@ -4,6 +4,7 @@
 const currentPage = window.location.pathname;
 const closeButton = document.querySelector(".close-button");
 const modal = document.querySelector(".modal");
+const articlesDiv = document.querySelector("#articles");
 
 const navLinks = document.querySelectorAll("nav a").forEach((link) => {
   if (link.href.includes(`${currentPage}`)) {
@@ -17,10 +18,9 @@ fetch("http://localhost:3000/news")
     renderArticles(data);
   });
 
-const articlesDiv = document.querySelector("#articles");
+
 
 function renderArticles(articles) {
-  if (currentPage.includes("index.html")) {
     articles.forEach((article) => {
       const card = document.createElement("div");
       card.className = "card";
@@ -46,8 +46,9 @@ function renderArticles(articles) {
       card.append(titleTag, imgTag, pSummary, a);
       articlesDiv.append(card);
     });
-  }
 }
+
+function appendArticles(){}
 
 function showFullSummaryOnClick(card, article) {
   card.addEventListener("click", () => {
