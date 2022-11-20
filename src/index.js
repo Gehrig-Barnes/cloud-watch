@@ -93,7 +93,6 @@ function deleteArticle(buttonId){
   fetch(`http://localhost:3000/news/${buttonId}`, {
     method: 'DELETE'
   })
-  
   const allCards = document.querySelectorAll(".card")
   const cardArr = Array.from(allCards)
   const foundCard = cardArr.find((card) => {
