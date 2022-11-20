@@ -60,7 +60,6 @@ a:is(:link, :active, :visited).active {
   background-color: #80584e;
   overflow: hidden;
   border-radius: 1%;
-  cursor: pointer;
   transition: transform 500ms ease;
   
 }
@@ -74,8 +73,13 @@ a:is(:link, :active, :visited).active {
   transform: scale(1.05);
 }
 
+.summary{
+  cursor: pointer;
+}
+
 .title {
   position: static;
+  
 }
 .title::after {
   content: "";
@@ -255,3 +259,9 @@ input[type="submit"] {
   transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
 }
 
+.delete-button{
+  width: 35px;
+  height: 35px;
+  margin-left: 90%;
+  cursor: pointer;
+}
