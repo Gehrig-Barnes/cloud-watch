@@ -8,7 +8,6 @@ const navLinks = document.querySelectorAll("nav a").forEach((link) => {
   }
 });
 
-
 fetch("http://localhost:3000/news")
   .then((r) => r.json())
   .then((data) => {
@@ -23,9 +22,20 @@ function buildOutElements(articles) {
     const pSummary = document.createElement("p");
     const pAuthor = document.createElement("p");
     const a = document.createElement("a");
-    addClassIdTextContent(pSummary, pAuthor,card,titleTag,imgTag,a, article);
+    const deleteButton = document.createElement("button");
+    addClassIdTextContent(
+      pSummary,
+      pAuthor,
+      card,
+      titleTag,
+      imgTag,
+      a,
+      article,
+      deleteButton
+    );
   });
   addClickToCard();
+  addClickToDeleteButton();
 }
 
 function addClassIdTextContent(
@@ -35,7 +45,8 @@ function addClassIdTextContent(
   titleTag,
   imgTag,
   a,
-  article
+  article,
+  deleteButton
 ) {
   card.className = "card";
   card.id = article.id;
@@ -51,25 +62,48 @@ function addClassIdTextContent(
       ? `${article.summary.substring(0, 100)} ...`
       : article.summary;
 
+  pSummary.id = article.id;
+
   pAuthor.textContent = article.author;
   pAuthor.className = "author";
 
   a.href = article.source;
   a.textContent = "Source";
-  appendArticles(pSummary, pAuthor, card, titleTag, imgTag, a);
+
+  deleteButton.textContent = "X";
+  deleteButton.className = "delete-button";
+  deleteButton.id = article.id;
+  appendArticles(pSummary, pAuthor, card, titleTag, imgTag, a, deleteButton);
 }
 
-function appendArticles(pSummary, pAuthor, card, titleTag, imgTag, a) {
+function appendArticles(
+  pSummary,
+  pAuthor,
+  card,
+  titleTag,
+  imgTag,
+  a,
+  deleteButton
+) {
   pSummary.append(pAuthor);
-  card.append(titleTag, imgTag, pSummary, a);
+  card.append(deleteButton, titleTag, imgTag, pSummary, a);
   articlesDiv.append(card);
 }
 
 function addClickToCard() {
-  const allCards = document.querySelectorAll(".card");
-  allCards.forEach((card) => {
-    card.addEventListener("click", () => {
-      getArticle(card.id);
+  const allSums = document.querySelectorAll(".summary");
+  allSums.forEach((summary) => {
+    summary.addEventListener("click", () => {
+      getArticle(summary.id);
+    });
+  });
+}
+
+function addClickToDeleteButton() {
+  const deleteButtons = document.querySelectorAll(".card button");
+  deleteButtons.forEach((deleteButton) => {
+    deleteButton.addEventListener("click", () => {
+      deleteArticle(deleteButton.id);
     });
   });
 }
@@ -80,14 +114,24 @@ function getArticle(cardId) {
     .then((articleObj) => showModal(articleObj));
 }
 
+function deleteArticle(buttonId) {
+  fetch(`http://localhost:3000/news/${buttonId}`, {
+    method: "DELETE",
+  });
+
+  const allCards = document.querySelectorAll(".card");
+  const cardArr = Array.from(allCards);
+  const foundCard = cardArr.find((card) => {
+    return card.id === buttonId;
+  });
+  foundCard.remove();
+}
+
 function showModal(article) {
-  console.log(article);
   modal.classList.toggle("show-modal");
-  document.querySelector("#modal-text").textContent = article.summary
+  document.querySelector("#modal-text").textContent = article.summary;
 }
 
 closeButton.addEventListener("click", () => {
   modal.classList.toggle("show-modal");
-  
 });
-
