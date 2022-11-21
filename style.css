@@ -35,14 +35,6 @@ a:is(:link, :active, :visited).active {
   background-color: white;
 }
 
-/* style home screen */
-
-#div_image {
-  max-height: 68%;
-  overflow: hidden;
-  overflow-y: hidden;
-}
-
 #home_image {
   max-width: 100%;
   width: auto;
@@ -61,7 +53,6 @@ a:is(:link, :active, :visited).active {
   overflow: hidden;
   border-radius: 1%;
   transition: transform 500ms ease;
-  
 }
 
 .card > img {
@@ -73,13 +64,12 @@ a:is(:link, :active, :visited).active {
   transform: scale(1.05);
 }
 
-.summary{
+.summary {
   cursor: pointer;
 }
 
 .title {
   position: static;
-  
 }
 .title::after {
   content: "";
@@ -177,7 +167,7 @@ input[type="submit"] {
   margin: 0px auto;
   box-shadow: -20px 15px 6px #a79596;
   background-color: #ffffff;
-  
+
   background: rgb(2, 0, 36);
   background: linear-gradient(
     90deg,
@@ -200,7 +190,6 @@ input[type="submit"] {
   justify-content: center;
   align-items: center;
   color: white;
-  
 }
 #align-card > div {
   padding-left: 20%;
@@ -208,11 +197,10 @@ input[type="submit"] {
   padding-bottom: 7%;
 }
 
-#curr-card{
+#curr-card {
   padding: 1%;
   padding-right: 10%;
 }
-
 
 /* css for modal */
 .modal {
@@ -255,13 +243,30 @@ input[type="submit"] {
 .show-modal {
   opacity: 1;
   visibility: visible;
-  transform: scale(1.0);
+  transform: scale(1);
   transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
 }
 
-.delete-button{
+.delete-button {
   width: 35px;
   height: 35px;
   margin-left: 90%;
   cursor: pointer;
+}
+
+#website-title {
+  position: absolute;
+  left: 29%;
+  top: 32%;
+  margin: 0px auto;
+  background-color: aqua;
+  background-color: rgba(0, 0, 0, 0.25);
+  padding: 150px;
+  font-size: 500%;
+  color: rgb(255, 255, 255);
+}
+
+#img-container {
+  overflow: hidden;
+  max-height: 700px;
 }
