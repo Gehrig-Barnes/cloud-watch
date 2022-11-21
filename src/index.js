@@ -104,6 +104,8 @@ function deleteArticle(buttonId){
 function showModal(article) {
   modal.classList.toggle("show-modal");
   document.querySelector("#modal-text").textContent = article.summary
+  document.querySelector("#modal-title").textContent = article.title
+  window.scrollTo(500, 0)
 }
 
 closeButton.addEventListener("click", () => {
