@@ -89,6 +89,8 @@ function getArticle(cardId) {
     .then((articleObj) => showModal(articleObj));
 }
 
+
+
 function deleteArticle(buttonId){
   fetch(`http://localhost:3000/news/${buttonId}`, {
     method: 'DELETE'

@@ -175,6 +175,8 @@ input[type="submit"] {
     rgba(9, 9, 121, 1) 25%,
     rgba(0, 212, 255, 1) 100%
   );
+  opacity: 0;
+  transition: opacity 2s;
 }
 
 #curr-weather > #city {
@@ -200,6 +202,7 @@ input[type="submit"] {
 #curr-card {
   padding: 1%;
   padding-right: 10%;
+  
 }
 
 /* css for modal */
@@ -270,3 +273,10 @@ input[type="submit"] {
   overflow: hidden;
   max-height: 700px;
 }
+
+#weather-svg{
+  max-width: 200px;
+  overflow: hidden;
+}
+
+

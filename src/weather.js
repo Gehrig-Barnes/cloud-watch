@@ -1,11 +1,12 @@
 import { weatherKey } from "./module.js";
 
 const currentPage = window.location.pathname;
-const navLinks = document.querySelectorAll("nav a").forEach((link) => {
+document.querySelectorAll("nav a").forEach((link) => {
   if (link.href.includes(`${currentPage}`)) {
     link.className = "active";
   }
 });
+const currWeather = document.querySelector("#curr-weather")
 const show = document.querySelector("#show-forecast");
 const searchForm = document.querySelector("#search-form");
 const pParent = document.querySelector("#hold-p");
@@ -44,7 +45,23 @@ function getCurrentWeather(lat, lon, key) {
     `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${key}&units=imperial`
   )
     .then((r) => r.json())
-    .then();
+    .then(data =>{ 
+      console.log(data)
+      const currWeatherChildren = currWeather.children
+      const currCard = currWeatherChildren[1].children[0].children
+      const svg = currWeatherChildren[1].children[1].children[0]
+      currWeatherChildren[0].textContent = data.name
+      currCard[0].textContent = `${data.main.temp}°`
+      currCard[1].textContent = `feels like: ${data.main.feels_like}°`
+      currCard[2].textContent = `Humidity ${data.main.humidity}`
+      currCard[3].textContent = `High: ${data.main.temp_max}°`
+      currCard[4].textContent = `Low: ${data.main.temp_min}°`
+      
+        svg.src = `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`
+      
+      currWeather.style.opacity = 1
+      
+    });
 }
 
 function getWeatherForecast(lat, lon, key) {
@@ -58,3 +75,7 @@ function getWeatherForecast(lat, lon, key) {
       console.log(pParent);
     });
 }
+
+
+
+
