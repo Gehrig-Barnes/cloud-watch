@@ -205,6 +205,8 @@ input[type="submit"] {
   
 }
 
+
+
 /* css for modal */
 .modal {
   position: fixed;
@@ -277,6 +279,10 @@ input[type="submit"] {
 #weather-svg{
   max-width: 200px;
   overflow: hidden;
+}
+
+.info{
+  
 }
 
 
